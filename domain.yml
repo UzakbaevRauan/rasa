@@ -1,0 +1,133 @@
+# version: "3.1"
+
+# intents:
+#   - greet
+
+# entities:
+#   - id_number
+
+# slots:
+#   id_number:
+#     type: text
+#     mappings:
+#       - type: from_text
+#       - type: from_entity
+#         entity: id_number
+
+# responses:
+#   utter_greet_and_ask_id:
+#     - text: "Здравствуйте! Пожалуйста, введите ваш ИИН."
+
+# forms:
+#   id_form:
+#     required_slots:
+#       id_number:
+#         - type: from_text
+#         - type: from_entity
+#           entity: id_number
+
+# actions:
+#   - action_ask_id_number
+# version: "3.1"
+
+# intents:
+#   - greet
+#   - inform_id
+#   - thank
+
+# responses:
+#   utter_greet:
+#     - text: "Добрый день! Можете диктовать ваш ИИН?"
+
+#   utter_ask_id:
+#     - text: "Можете, пожалуйста, предоставить ваш ИИН?"
+
+#   utter_thank_and_confirm:
+#     - text: "Спасибо, ваш ИИН принят."
+
+# actions:
+#   - action_utter_greet
+#   - action_utter_ask_id
+#   - action_utter_thank_and_confirm
+version: "3.1"
+
+intents:
+  - greet
+  - provide_id
+  - confirm
+  - deny
+
+slots:
+  id_number:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_text
+
+responses:
+  utter_greet_and_ask_id:
+    - text: "Добрый день! Можете диктовать ваш ИИН?"
+
+  utter_confirm_id:
+    - text: "Можете подтвердить ваш ИИН {id_number}?"
+
+  utter_id_confirmed:
+    - text: "Спасибо, ваш ИИН {id_number} подтвержден."
+
+  utter_id_not_confirmed:
+    - text: "Пожалуйста, укажите правильный ИИН."
+
+actions:
+  - action_handle_id_number
+  - utter_greet_and_ask_id
+  - utter_confirm_id
+  - utter_id_confirmed
+  - utter_id_not_confirmed
+
+
+# version: "3.1"
+
+# intents:
+#   - greet
+#   - provide_id
+#   - confirm
+#   - deny
+#   - provide_first_half
+#   - provide_second_half
+
+# entities:
+#   - id_number
+#   - id_first_half
+#   - id_second_half
+
+# slots:
+#   id_number:
+#     type: text
+#     mappings:
+#       - type: from_text
+#   id_first_half:
+#     type: text
+#     mappings:
+#       - type: from_text
+#   id_second_half:
+#     type: text
+#     mappings:
+#       - type: from_text
+
+# responses:
+#   utter_greet_and_ask_id:
+#     - text: "Добрый день. Можете диктовать ваш ИИН?"
+
+#   utter_id_confirmed:
+#     - text: "Ваш ИИН принят. До свидания."
+
+#   utter_ask_correct_first_half:
+#     - text: "Можете диктовать правильную первую половину вашего ИИН?"
+
+#   utter_ask_correct_second_half:
+#     - text: "Можете диктовать правильную вторую половину вашего ИИН?"
+
+# actions:
+#   - action_handle_id_number
+#   - action_handle_first_half
+#   - action_handle_second_half

@@ -1,0 +1,92 @@
+version: "3.1"
+stories:
+  - story: happy path
+    steps:
+    - intent: greet
+    - action: utter_greet_and_ask_id
+    - intent: provide_id
+    - action: action_handle_id_number
+    - action: utter_confirm_id
+    - intent: confirm
+    - action: utter_id_confirmed
+
+  - story: sad path 1
+    steps:
+    - intent: greet
+    - action: utter_greet_and_ask_id
+    - intent: mood_unhappy
+    - action: utter_cheer_up
+    - action: utter_did_that_help
+    - intent: affirm
+    - action: utter_happy
+
+  - story: sad path 2
+    steps:
+    - intent: greet
+    - action: utter_greet_and_ask_id
+    - intent: provide_id
+    - action: action_handle_id_number
+    - action: utter_confirm_id
+    - intent: deny
+    - action: utter_id_not_confirmed
+
+
+
+# version: "3.1"
+
+# stories:
+#   # История успешного подтверждения ИИН
+#   - story: Greet and confirm correct ID
+#     steps:
+#       - intent: greet
+#       - action: utter_greet_and_ask_id
+#       - intent: provide_id
+#       - action: action_handle_id_number
+#       - intent: confirm
+#       - action: utter_id_confirmed
+
+#   # История: первая половина верна, вторая часть неверна
+#   - story: Greet and deny ID (first correct, second incorrect)
+#     steps:
+#       - intent: greet
+#       - action: utter_greet_and_ask_id
+#       - intent: provide_id
+#       - action: action_handle_id_number
+#       - intent: deny
+#       - action: utter_ask_correct_second_half
+#       - intent: provide_second_half
+#       - action: action_handle_second_half
+#       - intent: confirm
+#       - action: utter_id_confirmed
+
+#   # История: первая половина неверна, вторая половина верна
+#   - story: Greet and deny ID (first incorrect, second correct)
+#     steps:
+#       - intent: greet
+#       - action: utter_greet_and_ask_id
+#       - intent: provide_id
+#       - action: action_handle_id_number
+#       - intent: deny
+#       - action: utter_ask_correct_first_half
+#       - intent: provide_first_half
+#       - action: action_handle_first_half
+#       - intent: confirm
+#       - action: utter_id_confirmed
+
+#   # История: обе половины неверны
+#   - story: Greet and deny ID (both incorrect)
+#     steps:
+#       - intent: greet
+#       - action: utter_greet_and_ask_id
+#       - intent: provide_id
+#       - action: action_handle_id_number
+#       - intent: deny
+#       - action: utter_ask_correct_first_half
+#       - intent: provide_first_half
+#       - action: action_handle_first_half
+#       - intent: deny
+#       - action: utter_ask_correct_second_half
+#       - intent: provide_second_half
+#       - action: action_handle_second_half
+#       - intent: confirm
+#       - action: utter_id_confirmed

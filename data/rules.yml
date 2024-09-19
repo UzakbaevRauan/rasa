@@ -1,0 +1,58 @@
+# version: "3.1"
+
+# rules:
+
+# - rule: Say goodbye anytime the user says goodbye
+#   steps:
+#   - intent: goodbye
+#   - action: utter_goodbye
+
+# - rule: Say 'I am a bot' anytime the user challenges
+#   steps:
+#   - intent: bot_challenge
+#   - action: utter_iamabot
+
+
+  # rules:
+  # - rule: Greet and ask for ID
+  #   steps:
+  #     - intent: greet
+  #     - action: utter_greet_and_ask_id
+
+  # - rule: Receive ID and ask for confirmation
+  #   steps:
+  #     - intent: provide_id
+  #     - action: action_handle_id_number
+  #     - action: utter_confirm_id
+
+  # - rule: Confirm ID
+  #   steps:
+  #     - intent: confirm
+  #     - action: utter_id_confirmed
+
+  # - rule: Deny ID
+  #   steps:
+  #     - intent: deny
+  #     - action: utter_id_not_confirmed
+version: "3.1"
+rules:
+  - rule: Greet and ask for ID
+    steps:
+      - intent: greet
+      - action: utter_greet_and_ask_id
+
+  - rule: Receive ID and ask for confirmation
+    steps:
+      - intent: provide_id
+      - action: action_handle_id_number
+      - action: utter_confirm_id
+
+  - rule: Confirm ID
+    steps:
+      - intent: confirm
+      - action: utter_id_confirmed
+
+  - rule: Deny ID
+    steps:
+      - intent: deny
+      - action: utter_id_not_confirmed
